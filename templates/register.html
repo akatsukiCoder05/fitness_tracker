@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+   <link rel ="stylesheet" href="../static/css/register_style.css">
+   
+</head>
+<body>
+    <section>
+    <div class="register-Box">
+    <form action="{{ url_for('register') }}" method="post">
+        <h1>Register</h1>
+        <div class ='input-box'>
+            <input type="First Name" name="first_name" placeholder="First Name"required>
+
+        </div>
+        <div class ='input-box'>
+            <input type="Last Name" name="last_name" placeholder="Last Name"required>
+
+        </div>
+        <div class ='input-box'>
+            <input type="Date-Of-Birth" name="dob" placeholder="Date-Of-Birth">
+
+        </div>
+        <div class = 'input-box'>
+            <input type="email" name="email" placeholder="Email" required>
+            <!-- <label>Email</label> -->
+        </div>
+
+        <div class="input-box">
+            <input type="password" name="password" placeholder="Password" required>
+            <!-- <label>Password</label> -->
+             
+        </div>
+        <button type="submit"> Login</button>
+
+    </form>
+    </div>   
+    </section>   
+</body>
+</html>
