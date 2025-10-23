@@ -38,8 +38,8 @@ def login():
     # Check if user exists and password matches
     if user and check_password_hash(user['password'], password):
         flash("Login Successful!", "success")
-        session['user'] = user['email']
-        return render_template('dashboard.html')
+        session['user'] = user
+        return render_template('dashboard.html', user=user)
     else:
         flash("Invalid email or password", "danger")
         return redirect(url_for('home'))
