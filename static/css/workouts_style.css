@@ -1,0 +1,63 @@
+/* Reset and base styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1e1e2f;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    padding: 30px;
+}
+
+/* Shared layout for all workout boxes */
+.workout-box {
+    width: 100%;
+    height: 200px;
+    margin: 40px auto;
+    padding: 40px 60px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s, background 0.3s;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hover animation */
+.workout-box:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Text styling */
+.text-content h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Image styling */
+.workout-img {
+    width: 260px;      /* 👈 increase this value to make images bigger */
+    height: auto;
+    border-radius: 12px;
+    margin-left: 20px;
+}
+
+/* Individual color themes */
+.gym-box {
+    border-left: 6px solid #ca111d;
+}
+
+.calisthenics-box {
+    border-left: 6px solid #1e90ff;
+}
+
+.home-workout-box {
+    border-left: 6px solid #2ed573;
+}
