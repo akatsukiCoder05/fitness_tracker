@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.exercise-category {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    /* max-width: 600px; */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.exercise-category h2 {
+    text-decoration: dotted underline;
+    color: #555;
+}
+
+.Full-Body-box {
+    width: 90%;
+    height: 300px;
+    margin: 40px auto;
+    padding: 40px 60px;
+    background: rgba(230, 221, 223, 0.662);
+    border-radius: 20px;
+    box-shadow: 0 3px 10px rgba(7, 7, 7, 0.959);
+    transition: transform 0.3s, background 0.3s;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items:right;
+
+}
+.exercise-list{
+    font-weight: 100px;
+}
+.Full-Body-box-img {
+    width: 250px;      /* 👈 increase this value to make images bigger */
+    height: auto;
+    border-radius: 12px;
+    /* margin-right: 100px; */
+    margin-top: 50px;
+    
+}

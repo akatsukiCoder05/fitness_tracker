@@ -91,6 +91,14 @@ def dashboard():
 # -------------------------------
 # WORKOUTS PAGE (Protected)
 # -------------------------------
+@app.route('/workouts/gym')
+def gym_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+    return render_template('gym.html')
+
+
 @app.route('/workouts')
 def workouts():
     if 'user' not in session:
@@ -100,16 +108,8 @@ def workouts():
     # Fetch workouts from database
     # cursor.execute("SELECT * FROM workouts")
     # workouts_list = cursor.fetchall()
-    # return render_template('workouts.html', workouts=workouts_list)
     return render_template('workouts.html')
 
-
-@app.route('/workouts/gym')
-def gym_workouts():
-    if 'user' not in session:
-        flash("Please login to access workouts", "warning")
-        return redirect(url_for('home'))
-    return render_template('gym.html')
 
 # -------------------------------
 # ADD WORKOUT ROUTE

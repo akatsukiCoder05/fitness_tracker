@@ -1,56 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>gym</title>
-    <link rel="stylesheet" href=" ../static/css/gym_style.css">
-</head>
-<body>
-    <div class="gym-box chest-box">
-        <div class="text-content">
-            <h1>CHEAST</h1>
-        </div>
-        <img src="../static/images/chest.png" alt="chest" class="workout-img">
+{% extends "base.html" %}
+
+{% block title %}Gym Workouts - Arambh Fitness{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="../static/css/gym_style.css">
+{% endblock %}
+
+{% block content %}
+<div class="gym-box chest-box">
+    <div class="text-content">
+        <h1>CHEAST</h1>
+    </div>
+    <img src="../static/images/chest.png" alt="chest" class="workout-img">
 
    
+</div>
+ <div class="gym-box shoulder-box">
+    <div class="text-content">
+        <h1>SHOULDER</h1>
     </div>
-     <div class="gym-box shoulder-box">
-        <div class="text-content">
-            <h1>SHOULDER</h1>
-        </div>
-        <img src="../static/images/shoulder.png" alt="shoulder" class="workout-img">
+    <img src="../static/images/shoulder.png" alt="shoulder" class="workout-img">
+</div>
+ <div class="gym-box bicep-box">
+    <div class="text-content">
+        <h1>BICEP</h1>
     </div>
-     <div class="gym-box bicep-box">
-        <div class="text-content">
-            <h1>BICEP</h1>
-        </div>
-        <img src="../static/images/bicep.png" alt="bicep" class="workout-img">
+    <img src="../static/images/bicep.png" alt="bicep" class="workout-img">
+</div>
+ <div class="gym-box back-box">
+    <div class="text-content">
+        <h1>BACK</h1>
     </div>
-     <div class="gym-box back-box">
-        <div class="text-content">
-            <h1>BACK</h1>
-        </div>
-        <img src="../static/images/back.png" alt="back" class="workout-img">
+    <img src="../static/images/back.png" alt="back" class="workout-img">
+</div>
+ <div class="gym-box leg-box">
+    <div class="text-content">
+        <h1>LEG</h1>
     </div>
-     <div class="gym-box leg-box">
-        <div class="text-content">
-            <h1>LEG</h1>
-        </div>
-        <img src="../static/images/leg.png" alt="leg" class="workout-img">
+    <img src="../static/images/leg.png" alt="leg" class="workout-img">
+</div>
+ <div class="gym-box abs-box">
+    <div class="text-content">
+        <h1>ABS</h1>
     </div>
-     <div class="gym-box abs-box">
-        <div class="text-content">
-            <h1>ABS</h1>
-        </div>
-        <img src="../static/images/abs.png" alt="abs" class="workout-img">
+    <img src="../static/images/abs.png" alt="abs" class="workout-img">
+</div>
+ <div class="gym-box forearm-box">
+    <div class="text-content">
+        <h1>FOREARM</h1>
     </div>
-     <div class="gym-box forearm-box">
-        <div class="text-content">
-            <h1>FOREARM</h1>
-        </div>
-        <img src="../static/images/forearm.png" alt="forearm" class="workout-img">
-    </div>
+    <img src="../static/images/forearm.png" alt="forearm" class="workout-img">
+</div>
     
-</body>
-</html>
+{% endblock %}
