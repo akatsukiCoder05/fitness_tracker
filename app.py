@@ -16,6 +16,22 @@ db = mysql.connector.connect(
 )
 cursor = db.cursor(dictionary=True)
 
+# Create nutrition table
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS nutrition (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    age INT NOT NULL,
+    height FLOAT NOT NULL,
+    weight FLOAT NOT NULL,
+    gender VARCHAR(10) NOT NULL,
+    daily_activity_level VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id)
+)
+""")
+db.commit()
+
 # -------------------------------
 # HOME (Login Page)
 # -------------------------------
@@ -91,6 +107,13 @@ def dashboard():
 # -------------------------------
 # WORKOUTS PAGE (Protected)
 # -------------------------------
+@app.route('/workouts/gym/chest')
+def chest_gym_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+    return render_template('chest.html')
+
 @app.route('/workouts/gym')
 def gym_workouts():
     if 'user' not in session:
@@ -98,18 +121,118 @@ def gym_workouts():
         return redirect(url_for('home'))
     return render_template('gym.html')
 
-
 @app.route('/workouts')
 def workouts():
     if 'user' not in session:
         flash("Please login to access workouts", "warning")
         return redirect(url_for('home'))
     
-    # Fetch workouts from database
-    # cursor.execute("SELECT * FROM workouts")
-    # workouts_list = cursor.fetchall()
     return render_template('workouts.html')
 
+@app.route('/workouts/gym/chest')
+def chest_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+    
+    return render_template('chest.html')
+
+@app.route('/workouts/gym/shoulder')
+def shoulder_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('shoulder.html')
+
+
+@app.route('/workouts/gym/bicep')
+def bicep_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('bicep.html')
+
+@app.route('/workouts/gym/back')
+def back_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('back.html')    
+
+@app.route('/workouts/gym/leg')
+def leg_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('leg.html')      
+
+@app.route('/workouts/gym/abs')
+def abs_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('abs.html')
+
+@app.route('/workouts/gym/forearm')
+def forearm_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('forearm.html')
+
+@app.route('/workouts/calisthenic')
+def calisthenic_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('calisthenic.html')
+
+@app.route('/workouts/calisthenic/upperbody')
+def upperbody_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('upperbody.html')
+
+@app.route('/workouts/calisthenic/lowerbody')
+def lowerbody_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('lowerbody.html')    
+
+@app.route('/workouts/calisthenic/corepart')
+def corepart_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('corepart.html')
+   
+@app.route('/workouts/calisthenic/fullbody')
+def fullbody_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('fullbody.html')
+
+@app.route('/workouts/homeworkout')
+def homeworkout_workouts():
+    if 'user' not in session:
+        flash("Please login to access workouts", "warning")
+        return redirect(url_for('home'))
+
+    return render_template('homeworkout.html')   
 
 # -------------------------------
 # ADD WORKOUT ROUTE
@@ -130,6 +253,38 @@ def add_workout():
         flash("Please enter a workout name", "error")
 
     return redirect(url_for('workouts'))
+
+# -------------------------------
+# NUTRITION ROUTE
+# -------------------------------
+
+@app.route('/nutrition', methods=['GET', 'POST'])
+def nutrition():
+    if 'user' not in session:
+        flash("Please login first", "warning")
+        return redirect(url_for('home'))
+
+    if request.method == 'POST':
+        try:
+            cursor.execute("""
+                INSERT INTO nutrition 
+                (user_id, age, height, weight, gender, daily_activity_level)
+                VALUES (%s, %s, %s, %s, %s, %s)
+            """, (
+                session['user']['id'],
+                request.form['age'],
+                request.form['height'],
+                request.form['weight'],
+                request.form['gender'],
+                request.form['daily_activity_level']
+            ))
+            db.commit()
+            flash("Nutrition information saved!", "success")
+        except Exception as e:
+            flash(f"Error: {str(e)}", "error")
+        return redirect(url_for('dashboard'))
+    
+    return render_template('nutrition.html')
 
 
 # -------------------------------

@@ -57,3 +57,10 @@ body {
     border-radius: 12px;
     margin-left: 20px;
 }
+.bicep-img {
+    width: 200px;     
+    height: auto;
+    border-radius: 12px;
+    margin-left: 35%;
+    
+}

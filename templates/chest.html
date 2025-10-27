@@ -1,56 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gym Chest Exercises</title>
-    <link rel="stylesheet" href="../static/css/chest_style.css">
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Chest Exercises - Arambh Fitness{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/chest_style.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
     <h1>Chest Exercises</h1>
 
     <div class="exercise-category">
-        <h2> 🏋️‍♂️Barbell Exercises</h2>
-        <div class="chest-box">
-        
-               <li>Flat Bench Press</li>
-               <img src ="../static/images/Flat Bench Press.gif" alt="Flat Bench Press" class="chest-img">    
-               <li>Incline Bench Press</li>
-               <img src ="../static/images/Incline Bench Press.gif" alt="Incline Bench Press" class="chest-img">
-               <li>Decline Bench Press</li>
-               <img src ="../static/images/Decline Bench Press.gif" alt="Decline Bench Press" class="chest-img">  
+        <h2>🏋️‍♂️ Barbell Exercises</h2>
+        <div class="chest-box" style="list-style-type: none;">
+            <p>Flat Bench Press</p>
+            <img src="{{ url_for('static', filename='images/flatBenchPress.gif') }}" alt="Flat Bench Press" class="chest-img">    
+            <p>Incline Bench Press</p>
+            <img src="{{ url_for('static', filename='images/Incline Bench Press.gif') }}" alt="Incline Bench Press" class="chest-img">
+            <p>Decline Bench Press</p>
+            <img src="{{ url_for('static', filename='images/Decline Bench Press.gif') }}" alt="Decline Bench Press" class="chest-img">  
+        </div>
+    </div>
+
+
+
+
+    <div class="exercise-category">
+        <h2>💪 Dumbbell Exercises</h2>
+        <div class="chest-box" style="list-style-type: none;">
+            <p>Flat Dumbbell Press</p>
+            <img src="{{ url_for('static', filename='images/Flat Dumbbell Press.gif') }}" alt="Flat Dumbbell Press" class="chest-img">
+            <p>Incline Dumbbell Press</p>
+            <img src="{{ url_for('static', filename='images/Incline Dumbbell Press.gif') }}" alt="Incline Dumbbell Press" class="chest-img"> 
+            <p>Dumbbell Flyes (Flat or Incline)</p>
+            <img src="{{ url_for('static', filename='images/Dumbbell Flyes.gif') }}" alt="Dumbbell Flyes" class="chest-img">
 
         </div>
     </div>
 
     <div class="exercise-category">
-        <h2>💪Dumbbell Exercises</h2>
-        <div class="chest-box">
-            <li>Flat Dumbbell Press</li>
-            <img src ="../static/images/Flat Dumbbell Press.gif" alt="Flat Dumbbell Press" class="chest-img">
-            <li>Incline Dumbbell Press</li>
-            <img src ="../static/images/Incline Dumbbell Press.gif" alt="Incline Dumbbell Press" class="chest-img"> 
-            <li>Dumbbell Flyes (Flat or Incline)</li>
-            <img src ="../static/images/Dumbbell Flyes.gif" alt="Dumbbell Flyes" class="chest-img">
-
-        </div>
-    </div>
-
-    <div class="exercise-category">
-        <h2>⚙️Machine & Cable Exercises</h2>
-        <div class="chest-box">
-    
-            <li>Chest Press Machine</li>
-            <img src ="../static/images/Chest Press Machine.gif" alt="Chest Press Machine" class="chest-img">
-            <li>Pec Deck / Chest Fly Machine</li>
-            <img src ="../static/images/Chest Fly Machine.gif" alt="Pec Deck / Chest Fly Machine" class="chest-img">     
-            <li>Cable Crossover</li>
-            <img src ="../static/images/Cable Crossover.gif" alt="Cable Crossover" class="chest-img">   
+        <h2>⚙️ Machine & Cable Exercises</h2>
+        <div class="chest-box" style="list-style-type: none;">
+            <p>Chest Press Machine</p>
+            <img src="{{ url_for('static', filename='images/Chest Press Machine.gif') }}" alt="Chest Press Machine" class="chest-img">
+            <p>Pec Deck / Chest Fly Machine</p>
+            <img src="{{ url_for('static', filename='images/Chest Fly Machine.gif') }}" alt="Pec Deck / Chest Fly Machine" class="chest-img">     
+            <p>Cable Crossover</p>
+            <img src="{{ url_for('static', filename='images/Cable Crossover.gif') }}" alt="Cable Crossover" class="chest-img">   
 
         </div>
     </div>
     <footer>
         <p>© 2025 Gym Workout Guide | Chest Day Routine</p>
     </footer>
-</body>
-</html>
+</div>
+{% endblock %}

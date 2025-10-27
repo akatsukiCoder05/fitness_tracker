@@ -1,0 +1,130 @@
+/* ======== General Page Styling ======== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background:url(../images/diet.jpg);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ======== Section Layout ======== */
+/* section {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* ======== Nutrition Form Box ======== */
+.Nutrition-box {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    color: #080808;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Nutrition-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ======== Title ======== */
+h1 {
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* ======== Input Fields ======== */
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #0a0a0a;
+    font-size: 16px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+/* Dropdown caret fix */
+.input-box select {
+    appearance: none;
+    /* background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>"); */
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+}
+
+/* Dropdown text inside options */
+.input-box select option {
+    color: #000;
+}
+
+/* Placeholder text */
+.input-box input::placeholder {
+    color: rgba(9, 8, 8, 0.8);
+}
+
+/* Focus effects */
+.input-box input:focus,
+.input-box select:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px #95a4b7;
+}
+
+/* ======== Button ======== */
+button {
+    width: 100%;
+    padding: 12px;
+    background: #95a4b7;
+    border: none;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px #95a4b7
+}
+
+button:hover {
+    background: #95a4b7;
+    box-shadow: 0 8px 20px rgba(64, 64, 65, 0.5);
+    transform: translateY(-2px);
+}
+
+/* ======== Responsive ======== */
+@media (max-width: 480px) {
+    .Nutrition-box {
+        width: 85%;
+        padding: 30px 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    input, select, button {
+        font-size: 14px;
+    }
+}

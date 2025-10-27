@@ -1,45 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lower Body Parts</title>
-    <link rel="stylesheet" href="../static/css/lowerpart_style.css">  
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %}Chest Exercises - Arambh Fitness{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/lowerpart_style.css') }}">
+{% endblock %}
+
+{% block content %}
   <h1>Lower-Body Calisthenics Exercises</h1>
 <div class="exercise-category">
   <div class="lower-box">
   <h2><li> Quadriceps</h2></li>
-  <img src ="../static/images/Quadriceps.gif" alt="Quadriceps" class="lower-box-img">
+  <img src ="{{ url_for('static', filename='images/Leg Extension.gif') }}" alt="Quadriceps" class="lower-box-img">
   <h2><li> Hamstrings</h2></li>
-  <img src ="../static/images/Hamstrings.webp" alt="Hamstrings" class="lower-box-img">
+  <img src ="{{ url_for('static', filename='images/Hamstrings.webp') }}" alt="Hamstrings" class="lower-box-img">
 </div>
 </div>
 <div class="exercise-category">
   <div class="lower-box">
   <h2><li> Glutes</h2></li>
-  <img src ="../static/images/Glutes.gif" alt="Glutes" class="lower-box-img">
+  <img src ="{{ url_for('static', filename='images/Glutes.gif') }}" alt="Glutes" class="lower-box-img">
   <h2><li> Calves</h2></li>
-  <img src ="../static/images/Calves.gif" alt="Calves" class="lower-box-img">
+  <img src ="{{ url_for('static', filename='images/Calves.gif') }}" alt="Calves" class="lower-box-img">
 </div>
 </div>
 <div class="exercise-category">
   <div class="lower-box">
   <h2><li> Adductors</h2></li>
-  <img src ="../static/images/Adductors.gif" alt="Adductors" class="lower-box-img">
+  <img src ="{{ url_for('static', filename='images/Adductors.gif') }}" alt="Adductors" class="lower-box-img">
   <h2><li> Abductors</h2></li>
-  <img src ="../static/images/Abductors.gif" alt="Abductors" class="lower-box-img"> 
+  <img src ="{{ url_for('static', filename='images/Abductors.gif') }}" alt="Abductors" class="lower-box-img"> 
 </div>
 </div>
   
 <div class="exercise-category">
   <div class="lower-box">
   <h2><li> Hip Flexors</h2></li>
-  <img src ="../static/images/Hip Flexors.webp" alt="Hip Flexors" class="lower-box-img">
+  <img src ="{{ url_for('static', filename='images/Hip Flexors.webp') }}" alt="Hip Flexors" class="lower-box-img">
   <h2><li> Soleus</h2></li>
-  <img src ="../static/images/Soleus.gif" alt="Soleus" class="lower-box-img">
+  <img src ="{{ url_for('static', filename='images/Soleus.gif') }}" alt="Soleus" class="lower-box-img">
 </div>
 </div>
-</body>
-</html>
+{% endblock %}

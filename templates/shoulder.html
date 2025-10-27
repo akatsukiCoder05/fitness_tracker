@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shoulder Exercises</title>
-    <link rel="stylesheet" href="../static/css/shoulder_style.css"> 
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Shoulder Exercises - Arambh Fitness{% endblock %}
+{% block extra_css %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/shoulder_style.css') }}">
+{% endblock %}
+
+{% block content %}
     <h1>Shoulder Exercises</h1>
 
     <section>
@@ -14,11 +13,11 @@
         <h2>🏋️‍♂️ Barbell Exercises</h2>
         <div class="shoulder-box">
             <li>Military Press</li>
-            <img src ="../static/images/Overhead Barbell Press.gif" alt="Overhead Barbell Press" class="shoulder-img">
+            <img src ="{{ url_for('static', filename='images/Chest Press Machine.gif') }}" alt="Overhead Barbell Press" class="shoulder-img">
             <li>Behind-the-Neck Press</li>
-            <img src ="../static/images/Behind-the-Neck Press.gif" alt="Behind-the-Neck Press" class="shoulder-img">
+            <img src ="{{ url_for('static', filename='images/Behind-the-Neck Press.gif') }}" alt="Behind-the-Neck Press" class="shoulder-img">
             <li>Barbell Upright Row</li>
-            <img src ="../static/images/Barbell Upright Row.gif" alt="Barbell Upright Row" class="shoulder-img">    
+            <img src ="{{ url_for('static', filename='images/Barbell Upright Row.gif') }}" alt="Barbell Upright Row" class="shoulder-img">    
         </div>
     </div>
     </section>
@@ -28,13 +27,13 @@
         <h2>💪 Dumbbell Exercises</h2>
         <div class="shoulder-box">  
             <li>Dumbbell Shoulder Press</li>
-            <img src ="../static/images/Dumbbell Shoulder Press.gif" alt="Dumbbell Shoulder Press" class="shoulder-img">    
+            <img src ="{{ url_for('static', filename='images/Dumbbell Shoulder Press.gif') }}" alt="Dumbbell Shoulder Press" class="shoulder-img">    
             <li>Arnold Press</li>
-            <img src ="../static/images/Arnold Press.gif" alt="Arnold Press" class="shoulder-img">  
+            <img src ="{{ url_for('static', filename='images/Chest Press Machine.gif') }}" alt="Arnold Press" class="shoulder-img">  
             <li>Dumbbell Lateral Raise</li>
-            <img src ="../static/images/Dumbbell Lateral Raise.gif" alt="Dumbbell Lateral Raise" class="shoulder-img">  
+            <img src ="{{ url_for('static', filename='images/Dumbbell Lateral Raise.gif') }}" alt="Dumbbell Lateral Raise" class="shoulder-img">  
             <li>Dumbbell Front Raise</li>
-            <img src ="../static/images/Dumbbell Front Raise.gif" alt="Dumbbell Front Raise" class="shoulder-img">  
+            <img src ="{{ url_for('static', filename='images/Dumbbell Front Raise.gif') }}" alt="Dumbbell Front Raise" class="shoulder-img">  
         </div>
     </div>
         
@@ -45,11 +44,11 @@
         <h2>⚙️ Machine / Cable Exercises</h2>
         <div class="shoulder-box">
             <li>Machine Shoulder Press</li>
-            <img src ="../static/images/Machine Shoulder Press.webp" alt="Machine Shoulder Press" class="shoulder-img">  
+            <img src ="{{ url_for('static', filename='images/Chest Press Machine.gif') }}" alt="Machine Shoulder Press" class="shoulder-img">  
             <li>Cable Lateral Raise</li>
-            <img src ="../static/images/Cable Lateral Raise.gif" alt="Cable Lateral Raise" class="shoulder-img">    
+            <img src ="{{ url_for('static', filename='images/Cable Lateral Raise.gif') }}" alt="Cable Lateral Raise" class="shoulder-img">    
             <li>Reverse Pec Deck</li>
-            <img src ="../static/images/Reverse Pec Deck.gif" alt="Reverse Pec Deck" class="shoulder-img">  
+            <img src ="{{ url_for('static', filename='images/Reverse Pec Deck.gif') }}" alt="Reverse Pec Deck" class="shoulder-img">  
 
         </div>  
     </div>    
@@ -58,5 +57,4 @@
     <footer>
         <p>© 2025 Gym Workout Guide | Shoulder Day Routine</p>
     </footer>
-</body>
-</html>
+{% endblock %}
