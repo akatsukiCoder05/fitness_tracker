@@ -1,79 +1,205 @@
-/* Reset and base styling */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* =========================
+   RESET
+========================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-    background: #201d1d;
-    color: rgb(11, 9, 9);
-    font-family: 'Poppins', sans-serif;
-    padding: 30px;
+/* =========================
+   FANCY FITNESS BACKGROUND (Light)
+========================= */
+body{
+  min-height:100vh;
+  font-family:'Poppins',sans-serif;
+  padding:30px;
+  color:#0f172a;
+
+  background:
+    radial-gradient(circle at 10% 15%, rgba(0,198,255,0.18), transparent 40%),
+    radial-gradient(circle at 90% 25%, rgba(255,81,47,0.14), transparent 45%),
+    radial-gradient(circle at 30% 90%, rgba(46,213,115,0.14), transparent 45%),
+    linear-gradient(135deg,#f6fbff,#f3f7ff,#fff7fb);
+  position: relative;
 }
 
-/* Shared layout for all workout boxes */
-.workout-box {
-    width: 100%;
-    height: 200px;
-    margin: 40px auto;
-    padding: 40px 60px;
-    background: rgb(240, 234, 234);
-    border-radius: 20px;
-    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1);
-    transition: transform 0.3s, background 0.3s;
-    
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* subtle grid pattern overlay */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(2,6,23,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2,6,23,0.04) 1px, transparent 1px);
+  background-size:56px 56px;
+  opacity:0.45;
+  z-index:-1;
 }
 
-/* Hover animation */
-.workout-box:hover {
-    transform: translateY(-5px);
-    background: rgba(147, 136, 136, 0.806);
+/* =========================
+   WORKOUT CARD (Glass + Proper Layout)
+========================= */
+.workout-box{
+  width:100%;
+  max-width:1100px;
+  margin:26px auto;
+  padding:26px 28px;
+  border-radius:22px;
+
+  background: rgba(255,255,255,0.62);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border:1px solid rgba(255,255,255,0.55);
+  box-shadow:0 18px 50px rgba(2,6,23,0.10);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:22px;
+
+  height:auto;                 /* mobile friendly */
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+  overflow:hidden;
+  position:relative;
 }
 
-/* Text styling */
-.text-content h1 {
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+/* inner glow */
+.workout-box::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,198,255,0.20), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(255,81,47,0.16), transparent 45%),
+    radial-gradient(circle at 60% 90%, rgba(46,213,115,0.14), transparent 45%);
+  filter: blur(18px);
+  opacity:0.85;
+  z-index:0;
 }
 
-/* Image styling */
-.workout-img {
-    width: 260px;      /* 👈 increase this value to make images bigger */
-    height: auto;
-    border-radius: 12px;
-    margin-left: 20px;
+.workout-box > *{
+  position:relative;
+  z-index:1;
 }
 
-/* Individual color themes */
-.gym-box {
-    border-left: 6px solid #5a5e63;
+.workout-box:hover{
+  transform: translateY(-6px);
+  box-shadow:0 24px 65px rgba(2,6,23,0.14);
+  background: rgba(255,255,255,0.74);
 }
 
-.calisthenics-box {
-    border-left: 6px solid #5a5e63;
+/* =========================
+   TEXT
+========================= */
+.text-content{
+  flex:1;
+  min-width:240px;
 }
 
-.home-workout-box {
-    border-left: 6px solid #5a5e63;
+.text-content h1{
+  font-size:2rem;
+  font-weight:800;
+  letter-spacing:.4px;
+  color:#0f172a;
 }
 
-.gym-box,.calisthenics-box,.home-workout-box{
-    border-right: 6px solid #5a5e63;
+/* =========================
+   IMAGES (Proper Fit + Size)
+========================= */
+.workout-img,
+.Calisthenics-img,
+.Calisthenics-part-img{
+  border-radius:16px;
+  border:1px solid rgba(2,6,23,0.08);
+  box-shadow:0 14px 28px rgba(2,6,23,0.12);
+  object-fit: cover;
+  object-position:center;
+  margin-left:0;  /* avoid extra push on small screens */
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-.Calisthenics-img {
-    width: 200px;      /* 👈 increase this value to make images bigger */
-    height: auto;
-    border-radius: 12px;
-    margin-left: 20px;
+
+/* main image */
+.workout-img{
+  width:320px;
+  height:190px;
 }
-.Calisthenics-part-img {
-    width: 150px;      /* 👈 increase this value to make images bigger */
-    height: auto;
-    border-radius: 12px;
-    margin-left: 20px;
+
+/* calisthenics image */
+.Calisthenics-img{
+  width:260px;
+  height:190px;
+}
+
+/* small part image */
+.Calisthenics-part-img{
+  width:220px;
+  height:160px;
+}
+
+.workout-box:hover .workout-img,
+.workout-box:hover .Calisthenics-img,
+.workout-box:hover .Calisthenics-part-img{
+  transform: scale(1.03);
+  box-shadow:0 18px 38px rgba(2,6,23,0.16);
+}
+
+/* =========================
+   BORDER THEMES (Neutral premium)
+========================= */
+.gym-box,
+.calisthenics-box,
+.home-workout-box{
+  border-left:7px solid rgba(90,94,99,0.85);
+  border-right:7px solid rgba(90,94,99,0.85);
+}
+
+/* slight tint for each (optional but looks premium) */
+.gym-box{
+  background: linear-gradient(135deg, rgba(90,94,99,0.05), rgba(255,255,255,0.62));
+}
+.calisthenics-box{
+  background: linear-gradient(135deg, rgba(90,94,99,0.04), rgba(255,255,255,0.62));
+}
+.home-workout-box{
+  background: linear-gradient(135deg, rgba(90,94,99,0.04), rgba(255,255,255,0.62));
+}
+
+/* =========================
+   ANDROID / MOBILE RESPONSIVE
+========================= */
+@media (max-width: 768px){
+  body{ padding:16px; }
+
+  .workout-box{
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
+    padding:18px 16px;
+    gap:14px;
+  }
+
+  .text-content h1{
+    font-size:1.5rem;
+  }
+
+  .workout-img,
+  .Calisthenics-img,
+  .Calisthenics-part-img{
+    width:100%;
+    height:200px;
+  }
+}
+
+@media (max-width: 480px){
+  .text-content h1{
+    font-size:1.35rem;
+  }
+
+  .workout-img,
+  .Calisthenics-img,
+  .Calisthenics-part-img{
+    height:190px;
+  }
 }

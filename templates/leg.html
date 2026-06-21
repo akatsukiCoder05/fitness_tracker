@@ -1,49 +1,87 @@
 {% extends "base.html" %}
 
-{% block title %}Chest Exercises - Arambh Fitness{% endblock %}
+{% block title %}Leg Exercises - Arambh Fitness{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/leg_style.css') }}">
 {% endblock %}
 
 {% block content %}
-    <h1>Leg Exercises</h1>
 
-    <div class="exercise-category">
-    <h2>🏋️‍♂️Barbell Exercises</h2>
-    <div class="leg-box">
-        <li>Barbell Squat</li>
-        <img src ="{{ url_for('static', filename='images/Barbell Squat.gif') }}" alt="Barbell Squat" class="leg-img"> 
-        <li>Romanian Deadlift</li>
-        <img src ="{{ url_for('static', filename='images/Romanian Deadlift.gif') }}" alt="Romanian Deadlift" class="leg-img"> 
-        <li>Barbell Front Squat</li>
-        <img src ="{{ url_for('static', filename='images/Barbell Front Squat.gif') }}" alt="Barbell Front Squat" class="leg-img"> 
+<h1>Leg Exercises</h1>
 
-    </div>
-    </div>
+<div class="exercise-category">
 
-    <div class="exercise-category">
-    <h2>💪Dumbbell Exercises</h2>
-    <div class="leg-box">
-    
-        <li>Dumbbell Lunges</li>
-        <img src ="{{ url_for('static', filename='images/Dumbbell Lunges.gif') }}" alt="Dumbbell Lunges" class="leg-img"> 
-        <li>Dumbbell Step-Ups</li>
-        <img src ="{{ url_for('static', filename='images/Dumbbell Step-Ups.gif') }}" alt="Dumbbell Step-Ups" class="leg-img"> 
-        <li>Dumbbell Bulgarian Split Squat</li>
-        <img src ="{{ url_for('static', filename='images/Dumbbell Bulgarian Split Squat.gif') }}" alt="Dumbbell Bulgarian Split Squat" class="leg-img">   
-    </div>  
-    </div>
+<h2>🏋️‍♂️ Barbell Exercises</h2>
 
-    <div class="exercise-category">
-    <h2>⚙️Machine Exercises</h2>
-    <div class="leg-box">
-        <li>Leg Press</li>
-        <img src ="{{ url_for('static', filename='images/leg Press.gif') }}" alt="Leg Press" class="leg-img"> 
-        <li>Leg Curl</li>
-        <img src ="{{ url_for('static', filename='images/Leg Curl.gif') }}" alt="Leg Curl" class="leg-img"> 
-        <li>Leg Extension</li>
-        <img src ="{{ url_for('static', filename='images/Leg Extension.gif') }}" alt="Leg Extension" class="leg-img">         
-    </div>
-    </div>
+<div class="leg-box">
+
+<div class="exercise-card">
+<p>Barbell Squat</p>
+<img src="{{ url_for('static', filename='images/Barbell Squat.gif') }}" class="leg-img">
+</div>
+
+<div class="exercise-card">
+<p>Romanian Deadlift</p>
+<img src="{{ url_for('static', filename='images/Romanian Deadlift.gif') }}" class="leg-img">
+</div>
+
+<div class="exercise-card">
+<p>Barbell Front Squat</p>
+<img src="{{ url_for('static', filename='images/Barbell Front Squat.gif') }}" class="leg-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>💪 Dumbbell Exercises</h2>
+
+<div class="leg-box">
+
+<div class="exercise-card">
+<p>Dumbbell Lunges</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Lunges.gif') }}" class="leg-img">
+</div>
+
+<div class="exercise-card">
+<p>Dumbbell Step-Ups</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Step-Ups.gif') }}" class="leg-img">
+</div>
+
+<div class="exercise-card">
+<p>Dumbbell Bulgarian Split Squat</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Bulgarian Split Squat.gif') }}" class="leg-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>⚙️ Machine Exercises</h2>
+
+<div class="leg-box">
+
+<div class="exercise-card">
+<p>Leg Press</p>
+<img src="{{ url_for('static', filename='images/leg Press.gif') }}" class="leg-img">
+</div>
+
+<div class="exercise-card">
+<p>Leg Curl</p>
+<img src="{{ url_for('static', filename='images/Leg Curl.gif') }}" class="leg-img">
+</div>
+
+<div class="exercise-card">
+<p>Leg Extension</p>
+<img src="{{ url_for('static', filename='images/Leg Extension.gif') }}" class="leg-img">
+</div>
+
+</div>
+</div>
+
 {% endblock %}

@@ -1,54 +1,87 @@
 {% extends "base.html" %}
 
-{% block title %}Chest Exercises - Arambh Fitness{% endblock %}
+{% block title %}Abs Exercises - Arambh Fitness{% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/abs_style.css') }}">
 {% endblock %}
 
 {% block content %}
-    <h1>Abs Exercises</h1>
-    <div class="exercise-category">
 
-    <h2>💪Bodyweight Exercises</h2>
-    <div class="abs-box">
-    
+<h1>Abs Exercises</h1>
 
-        <li>Crunches</li>
-        <img src ="{{ url_for('static', filename='images/Crunches.gif') }}" alt="Crunches" class="abs-img">
-        <li>Leg Raises</li>
-        <img src ="{{ url_for('static', filename='images/Leg Raises.gif') }}" alt="Leg Raises" class="abs-img">   
-        <li>Plank</li>  
-        <img src ="{{ url_for('static', filename='images/Plank.gif') }}" alt="Plank" class="abs-img"> 
-    </div>
-    </div>
-    <div class="exercise-category">
+<div class="exercise-category">
 
-    
+<h2>💪 Bodyweight Exercises</h2>
 
-    <h2>🏋️‍♂️Dumbbell / Weighted Exercises</h2>
-    <div class="abs-box">
+<div class="abs-box">
 
-    
-        <li>Weighted Crunch</li>
-        <img src ="{{ url_for('static', filename='images/Weighted Crunch.gif') }}" alt="Weighted Crunch" class="abs-img"> 
-        <li>Russian Twist (with Dumbbell)</li>
-        <img src ="{{ url_for('static', filename='images/Russian Twist (with Dumbbell).webp') }}" alt="Russian Twist" class="abs-img"> 
-        <li>Dumbbell Side Bend</li>
-        <img src ="{{ url_for('static', filename='images/Dumbbell Side Bend.gif') }}" alt="Dumbbell Side Bend" class="abs-img">   
-    </div>
-    </div>
-    <div class="exercise-category">
+<div class="exercise-card">
+<p>Crunches</p>
+<img src="{{ url_for('static', filename='images/Crunches.gif') }}" class="abs-img">
+</div>
 
-    <h2>⚙️Machine / Cable Exercises</h2>
-    <div class="abs-box">
-    
-        <li>Cable Crunch</li>
-        <img src ="{{ url_for('static', filename='images/Cable Crunch.gif') }}" alt="Cable Crunch" class="abs-img">   
-        <li>Cable Woodchopper</li>
-        <img src ="{{ url_for('static', filename='images/Cable Woodchopper.webp') }}" alt="Cable Woodchopper" class="abs-img">   
-        <li>Ab Crunch Machine</li>
-        <img src ="{{ url_for('static', filename='images/Ab Crunch Machine.gif') }}" alt="Ab Crunch Machine" class="abs-img">   
-    </div>
-    </div>
+<div class="exercise-card">
+<p>Leg Raises</p>
+<img src="{{ url_for('static', filename='images/Leg Raises.gif') }}" class="abs-img">
+</div>
+
+<div class="exercise-card">
+<p>Plank</p>
+<img src="{{ url_for('static', filename='images/Plank.gif') }}" class="abs-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>🏋️‍♂️ Dumbbell / Weighted Exercises</h2>
+
+<div class="abs-box">
+
+<div class="exercise-card">
+<p>Weighted Crunch</p>
+<img src="{{ url_for('static', filename='images/Weighted Crunch.gif') }}" class="abs-img">
+</div>
+
+<div class="exercise-card">
+<p>Russian Twist</p>
+<img src="{{ url_for('static', filename='images/Russian Twist (with Dumbbell).webp') }}" class="abs-img">
+</div>
+
+<div class="exercise-card">
+<p>Dumbbell Side Bend</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Side Bend.gif') }}" class="abs-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>⚙️ Machine / Cable Exercises</h2>
+
+<div class="abs-box">
+
+<div class="exercise-card">
+<p>Cable Crunch</p>
+<img src="{{ url_for('static', filename='images/Cable Crunch.gif') }}" class="abs-img">
+</div>
+
+<div class="exercise-card">
+<p>Cable Woodchopper</p>
+<img src="{{ url_for('static', filename='images/Cable Woodchopper.webp') }}" class="abs-img">
+</div>
+
+<div class="exercise-card">
+<p>Ab Crunch Machine</p>
+<img src="{{ url_for('static', filename='images/Ab Crunch Machine.gif') }}" class="abs-img">
+</div>
+
+</div>
+</div>
+
 {% endblock %}

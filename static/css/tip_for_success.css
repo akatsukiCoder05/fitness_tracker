@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+h1 {
+    text-align: center;
+    background-color: aqua;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    font-weight: bold;
+    flex-wrap: wrap;       /* Allows blocks to wrap to next line */
+    gap: 20px;             /* Space between blocks */
+    justify-content: center;
+}
+
+.container > div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    flex: 0 1 calc(50% - 20px); /* Two blocks per row, responsive */
+    box-sizing: border-box;
+}
+
+h2 {
+    color: #007BFF;
+    text-decoration: underline;
+}
+
+ol li {
+    margin-bottom: 8px;
+}

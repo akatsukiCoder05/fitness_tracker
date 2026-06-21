@@ -1,51 +1,87 @@
 {% extends "base.html" %}
 
-{% block title %}Chest Exercises - Arambh Fitness{% endblock %}
+{% block title %}Back Exercises - Arambh Fitness{% endblock %}
 
 {% block extra_css %}
-
-<link rel="stylesheet" href="{{ url_for('static', filename='css/back_style.css') }}"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/back_style.css') }}">
 {% endblock %}
 
 {% block content %}
-    <h1>Back Exercises</h1>
-    <div class="exercise-category">
 
-    <h2>🏋️‍♂️Barbell Exercises</h2>
-    <div class="back-box">
-    
-        <li>Barbell Deadlift</li>
-        <img src ="{{ url_for('static', filename='images/Barbell Deadlift.gif') }}" alt="Barbell Deadlift" class="back-img">
-        <li>Bent-Over Barbell Row</li>
-        <img src ="{{ url_for('static', filename='images/Bent-Over Barbell Row.gif') }}" alt="Bent-Over Barbell Row" class="back-img">    
-        <li>T-Bar Row</li>
-        <img src ="{{ url_for('static', filename='images/T-Bar Row.gif') }}" alt="T-Bar Row" class="back-img">    
-    </div>
-    </div>
+<h1>Back Exercises</h1>
 
-    <div class="exercise-category">
-    <h2>💪Dumbbell Exercises</h2>
-    <div class="back-box">
+<div class="exercise-category">
 
-        <li>Dumbbell One-Arm Row</li>
-        <img src ="{{ url_for('static', filename='images/Dumbbell One-Arm Row.gif') }}" alt="Dumbbell One-Arm Row" class="back-img">
-        <li>Dumbbell Reverse Fly</li>
-        <img src ="{{ url_for('static', filename='images/Dumbbell Reverse Fly.gif') }}" alt="Dumbbell Reverse Fly" class="back-img">
-        <li>Dumbbell Shrugs</li>
-        <img src ="{{ url_for('static', filename='images/Dumbbell Shrugs.gif') }}" alt="Dumbbell Shrugs" class="back-img">    
-    </div>
-    </div>
+<h2>🏋️‍♂️ Barbell Exercises</h2>
 
-    <div class="exercise-category">
-    <h2>⚙️Machine Exercises</h2>
-    <div class="back-box">
+<div class="back-box">
 
-        <li>Lat Pulldown</li>
-        <img src ="{{ url_for('static', filename='images/Lat Pulldown.gif') }}" alt="Lat Pulldown" class="back-img">
-        <li>Seated Cable Row</li>
-        <img src ="{{ url_for('static', filename='images/Seated Cable Row.gif') }}" alt="Seated Cable Row" class="back-img">  
-        <li>Machine Assisted Pull-Up</li>
-        <img src ="{{ url_for('static', filename='images/Machine Assisted Pull-Up.gif') }}" alt="Machine Assisted Pull-Up" class="back-img">  
-    </div>
-    </div>
+<div class="exercise-card">
+<p>Barbell Deadlift</p>
+<img src="{{ url_for('static', filename='images/Barbell Deadlift.gif') }}" class="back-img">
+</div>
+
+<div class="exercise-card">
+<p>Bent-Over Barbell Row</p>
+<img src="{{ url_for('static', filename='images/Bent-Over Barbell Row.gif') }}" class="back-img">
+</div>
+
+<div class="exercise-card">
+<p>T-Bar Row</p>
+<img src="{{ url_for('static', filename='images/T-Bar Row.gif') }}" class="back-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>💪 Dumbbell Exercises</h2>
+
+<div class="back-box">
+
+<div class="exercise-card">
+<p>Dumbbell One-Arm Row</p>
+<img src="{{ url_for('static', filename='images/Dumbbell One-Arm Row.gif') }}" class="back-img">
+</div>
+
+<div class="exercise-card">
+<p>Dumbbell Reverse Fly</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Reverse Fly.gif') }}" class="back-img">
+</div>
+
+<div class="exercise-card">
+<p>Dumbbell Shrugs</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Shrugs.gif') }}" class="back-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>⚙️ Machine Exercises</h2>
+
+<div class="back-box">
+
+<div class="exercise-card">
+<p>Lat Pulldown</p>
+<img src="{{ url_for('static', filename='images/Lat Pulldown.gif') }}" class="back-img">
+</div>
+
+<div class="exercise-card">
+<p>Seated Cable Row</p>
+<img src="{{ url_for('static', filename='images/Seated Cable Row.gif') }}" class="back-img">
+</div>
+
+<div class="exercise-card">
+<p>Machine Assisted Pull-Up</p>
+<img src="{{ url_for('static', filename='images/Machine Assisted Pull-Up.gif') }}" class="back-img">
+</div>
+
+</div>
+</div>
+
 {% endblock %}

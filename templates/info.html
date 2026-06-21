@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="profile-container">
+
+    <!-- LEFT SIDE -->
+    <div class="profile-box-left">
+        <div class="image-wrapper">
+            <img id="profilePreview"
+                 src="{{ url_for('static', filename='profile_pics/' + user.profile_image) }}"
+                 alt="Profile">
+
+            <label class="edit-icon">
+                <i class="fas fa-camera"></i>
+                <input type="file"
+                       name="profile_image"
+                       form="profileForm"
+                       onchange="previewImage(event)"
+                       hidden>
+            </label>
+        </div>
+
+        <h2 id="nameTag">{{ user.name }}</h2>
+        <p id="emailTag">{{ user.email }}</p>
+        <div class="age-badge"></div>
+    </div>
+
+
+    <!-- RIGHT SIDE FORM -->
+    <form id="profileForm"
+          action="{{ url_for('update_info') }}"
+          method="POST"
+          enctype="multipart/form-data"
+          class="profile-box-right">
+
+        <h3 class="form-title">Account Settings</h3>
+
+        <div class="input-group">
+            <label>Full Name</label>
+            <input name="name" type="text" value="{{ user.name }}">
+        </div>
+
+        <div class="input-group">
+            <label>Email Address</label>
+            <input name="email" type="email" value="{{ user.email }}" readonly>
+        </div>
+
+        <div class="row-box">
+            <div class="input-group half">
+                <label>Date of Birth</label>
+                <input type="date"
+                       name="dob"
+                       id="dobInput"
+                       onchange="calculateAge()"
+                       value="{{ user.dob.strftime('%Y-%m-%d') if user.dob }}">
+            </div>
+        </div>
+
+        <button type="submit" class="save-btn">Save Changes</button>
+
+    </form>
+</div>
+
+
+<!-- JAVASCRIPT -->
+<script>
+
+function previewImage(event) {
+    const reader = new FileReader();
+    const imageField = document.getElementById("profilePreview");
+
+    reader.onload = function () {
+        if (reader.readyState === 2) {
+            imageField.src = reader.result;
+        }
+    }
+
+    if (event.target.files[0]) {
+        reader.readAsDataURL(event.target.files[0]);
+    }
+}
+
+
+function calculateAge() {
+    const dobInput = document.getElementById('dobInput').value;
+    const ageBadge = document.querySelector('.age-badge');
+
+    if (!dobInput) {
+        ageBadge.innerText = "";
+        return;
+    }
+
+    const birthDate = new Date(dobInput);
+    const today = new Date();
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDiff = today.getMonth() - birthDate.getMonth();
+
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+
+    if (age >= 0) {
+        ageBadge.innerText = age + " Years Old";
+    } else {
+        ageBadge.innerText = "Invalid Date";
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (document.getElementById('dobInput').value) {
+        calculateAge();
+    }
+});
+
+</script>
+
+
+<!-- CSS -->
+<style>
+
+.profile-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.profile-box-left {
+    flex: 1;
+    min-width: 300px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-box-right {
+    flex: 2;
+    min-width: 400px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.image-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #f0f4f8;
+}
+
+.edit-icon {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background: #007bff;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+    font-size: 14px;
+}
+
+.input-group input {
+    padding: 12px;
+    border: 1px solid #e0e6ed;
+    border-radius: 10px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #007bff;
+}
+
+.row-box {
+    display: flex;
+    gap: 15px;
+}
+
+.half {
+    flex: 1;
+}
+
+.save-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.age-badge {
+    background: #e7f3ff;
+    color: #007bff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+</style>
+
+{% endblock %}

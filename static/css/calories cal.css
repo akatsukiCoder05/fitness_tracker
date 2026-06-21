@@ -1,0 +1,143 @@
+:root {
+    --primary: #4f46e5;
+    --secondary: #22c55e;
+    --bg: #f1f5f9;
+    --card: #2e8c9d;
+    --text: #0f172a;
+    --muted: #000000;
+    --border: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: linear-gradient(135deg, #22c55e, #06b6d4, #020617);
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    margin: 0;
+    color: var(--text);
+}
+
+/* Card */
+section {
+    background: var(--card);
+    width: 360px;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.08),
+        0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Inputs */
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    outline: none;
+    background: #91bfed;
+    transition: all 0.25s ease;
+}
+
+input::placeholder {
+    color: var(--muted);
+}
+
+input:focus,
+select:focus {
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+/* Labels */
+label {
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: var(--muted);
+}
+
+/* Spacing */
+div {
+    margin-bottom: 16px;
+}
+
+/* Gender toggle */
+.gender-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.gender-options input {
+    display: none;
+}
+
+.gender-options label {
+    padding: 12px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    background: #91bfed;
+}
+
+.gender-options input:checked + label {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+}
+
+/* Button */
+button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, var(--primary), #6366f1);
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+/* Result */
+#result {
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 10px;
+    background: #ecfeff;
+    color: #155e75;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 420px) {
+    section {
+        width: 90%;
+    }
+}

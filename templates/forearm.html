@@ -1,48 +1,87 @@
 {% extends "base.html" %}
 
-{% block title %}Bicep Exercises - Arambh Fitness{% endblock %}
+{% block title %}Forearm Exercises - Arambh Fitness{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/forearm_style.css') }}"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/forearm_style.css') }}">
 {% endblock %}
 
 {% block content %}
-    <h1>Forearm Exercises</h1>
-    <div class="exercise-category">
 
-    <h2>🏋️‍♂️Barbell Exercises</h2>
-    <div class="forearm-box">
-        <li>Barbell Wrist Curl (Palms Up)</li>
-        <img src ="{{ url_for('static', filename='images/Barbell Wrist Curl (Palms Up).gif') }}" alt="Barbell Wrist Curl" class="forearm-img">        
-        <li>Reverse Barbell Wrist Curl (Palms Down)</li>
-        <img src ="{{ url_for('static', filename='images/Reverse Barbell Wrist Curl.gif') }}" alt="Reverse Barbell Wrist Curl" class="forearm-img">        
-        <li>Barbell Reverse Grip Curl</li>
-        <img src ="{{ url_for('static', filename='images/Barbell Reverse Grip Curl.gif') }}" alt="Barbell Reverse Grip Curl" class="forearm-img"> 
-    </div>  
-    </div>
-    <div class="exercise-category">
+<h1>Forearm Exercises</h1>
 
-    <h2>💪Dumbbell Exercises</h2>
-    <div class="forearm-box">
-        <li>Dumbbell Wrist Curl</li>
-        <img src ="{{ url_for('static', filename='images/Dumbbell Wrist Curl.gif') }}" alt="Dumbbell Wrist Curl" class="forearm-img">        
-        <li>Dumbbell Reverse Curl</li>
-        <img src ="{{ url_for('static', filename='images/Dumbbell Reverse Curl.gif') }}" alt="Dumbbell Reverse Curl" class="forearm-img">         
-        <li>Dumbbell Hammer Curl</li>   
-        <img src ="{{ url_for('static', filename='images/Dumbbell Hammer Curl.gif') }}" alt="Dumbbell Hammer Curl" class="forearm-img">          
-    </div>
-    </div>
-    <div class="exercise-category">
-    
+<div class="exercise-category">
 
-    <h2>Bodyweight / Other Exercises</h2>
-    <div class="forearm-box"> 
-        <li>Plate Pinch</li>
-        <img src ="{{ url_for('static', filename='images/Plate Pinch.gif') }}" alt="Plate Pinch" class="forearm-img">        
-        <li>Wrist Roller</li>
-        <img src ="{{ url_for('static', filename='images/Wrist Roller.gif') }}" alt="Wrist Roller" class="forearm-img">           
-        <li>Fingertip Push-Ups</li>
-        <img src ="{{ url_for('static', filename='images/Fingertip Push-Ups.gif') }}" alt="Fingertip Push-Ups" class="forearm-img">           
-    </div>
-    </div>
+<h2>🏋️‍♂️ Barbell Exercises</h2>
+
+<div class="forearm-box">
+
+<div class="exercise-card">
+<p>Barbell Wrist Curl (Palms Up)</p>
+<img src="{{ url_for('static', filename='images/Barbell Wrist Curl (Palms Up).gif') }}" class="forearm-img">
+</div>
+
+<div class="exercise-card">
+<p>Reverse Barbell Wrist Curl (Palms Down)</p>
+<img src="{{ url_for('static', filename='images/Reverse Barbell Wrist Curl.gif') }}" class="forearm-img">
+</div>
+
+<div class="exercise-card">
+<p>Barbell Reverse Grip Curl</p>
+<img src="{{ url_for('static', filename='images/Barbell Reverse Grip Curl.gif') }}" class="forearm-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>💪 Dumbbell Exercises</h2>
+
+<div class="forearm-box">
+
+<div class="exercise-card">
+<p>Dumbbell Wrist Curl</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Wrist Curl.gif') }}" class="forearm-img">
+</div>
+
+<div class="exercise-card">
+<p>Dumbbell Reverse Curl</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Reverse Curl.gif') }}" class="forearm-img">
+</div>
+
+<div class="exercise-card">
+<p>Dumbbell Hammer Curl</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Hammer Curl.gif') }}" class="forearm-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>Bodyweight / Other Exercises</h2>
+
+<div class="forearm-box">
+
+<div class="exercise-card">
+<p>Plate Pinch</p>
+<img src="{{ url_for('static', filename='images/Plate Pinch.gif') }}" class="forearm-img">
+</div>
+
+<div class="exercise-card">
+<p>Wrist Roller</p>
+<img src="{{ url_for('static', filename='images/Wrist Roller.gif') }}" class="forearm-img">
+</div>
+
+<div class="exercise-card">
+<p>Fingertip Push-Ups</p>
+<img src="{{ url_for('static', filename='images/Fingertip Push-Ups.gif') }}" class="forearm-img">
+</div>
+
+</div>
+</div>
+
 {% endblock %}

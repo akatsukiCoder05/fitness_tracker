@@ -1,60 +1,87 @@
 {% extends "base.html" %}
 {% block title %}Shoulder Exercises - Arambh Fitness{% endblock %}
-{% block extra_css %}
 
+{% block extra_css %}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/shoulder_style.css') }}">
 {% endblock %}
 
 {% block content %}
-    <h1>Shoulder Exercises</h1>
 
-    <section>
-        <div class="exercise-category">
-        <h2>🏋️‍♂️ Barbell Exercises</h2>
-        <div class="shoulder-box">
-            <li>Military Press</li>
-            <img src ="{{ url_for('static', filename='images/Chest Press Machine.gif') }}" alt="Overhead Barbell Press" class="shoulder-img">
-            <li>Behind-the-Neck Press</li>
-            <img src ="{{ url_for('static', filename='images/Behind-the-Neck Press.gif') }}" alt="Behind-the-Neck Press" class="shoulder-img">
-            <li>Barbell Upright Row</li>
-            <img src ="{{ url_for('static', filename='images/Barbell Upright Row.gif') }}" alt="Barbell Upright Row" class="shoulder-img">    
-        </div>
-    </div>
-    </section>
+<h1>Shoulder Exercises</h1>
 
-    <section>
-        <div class="exercise-category">
-        <h2>💪 Dumbbell Exercises</h2>
-        <div class="shoulder-box">  
-            <li>Dumbbell Shoulder Press</li>
-            <img src ="{{ url_for('static', filename='images/Dumbbell Shoulder Press.gif') }}" alt="Dumbbell Shoulder Press" class="shoulder-img">    
-            <li>Arnold Press</li>
-            <img src ="{{ url_for('static', filename='images/Chest Press Machine.gif') }}" alt="Arnold Press" class="shoulder-img">  
-            <li>Dumbbell Lateral Raise</li>
-            <img src ="{{ url_for('static', filename='images/Dumbbell Lateral Raise.gif') }}" alt="Dumbbell Lateral Raise" class="shoulder-img">  
-            <li>Dumbbell Front Raise</li>
-            <img src ="{{ url_for('static', filename='images/Dumbbell Front Raise.gif') }}" alt="Dumbbell Front Raise" class="shoulder-img">  
-        </div>
-    </div>
-        
-    </section>
+<div class="exercise-category">
+<h2>🏋️‍♂️ Barbell Exercises</h2>
 
-    <section>
-        <div class="exercise-category">
-        <h2>⚙️ Machine / Cable Exercises</h2>
-        <div class="shoulder-box">
-            <li>Machine Shoulder Press</li>
-            <img src ="{{ url_for('static', filename='images/Chest Press Machine.gif') }}" alt="Machine Shoulder Press" class="shoulder-img">  
-            <li>Cable Lateral Raise</li>
-            <img src ="{{ url_for('static', filename='images/Cable Lateral Raise.gif') }}" alt="Cable Lateral Raise" class="shoulder-img">    
-            <li>Reverse Pec Deck</li>
-            <img src ="{{ url_for('static', filename='images/Reverse Pec Deck.gif') }}" alt="Reverse Pec Deck" class="shoulder-img">  
+<div class="shoulder-box">
 
-        </div>  
-    </div>    
-    </section>
+<div class="exercise-card">
+<p>Military Press</p>
+<img src="{{ url_for('static', filename='images/Chest Press Machine.gif') }}" class="shoulder-img">
+</div>
 
-    <footer>
-        <p>© 2025 Gym Workout Guide | Shoulder Day Routine</p>
-    </footer>
+<div class="exercise-card">
+<p>Behind-the-Neck Press</p>
+<img src="{{ url_for('static', filename='images/Behind-the-Neck Press.gif') }}" class="shoulder-img">
+</div>
+
+<div class="exercise-card">
+<p>Barbell Upright Row</p>
+<img src="{{ url_for('static', filename='images/Barbell Upright Row.gif') }}" class="shoulder-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+<h2>💪 Dumbbell Exercises</h2>
+
+<div class="shoulder-box">
+
+<div class="exercise-card">
+<p>Dumbbell Shoulder Press</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Shoulder Press.gif') }}" class="shoulder-img">
+</div>
+
+<div class="exercise-card">
+<p>Dumbbell Lateral Raise</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Lateral Raise.gif') }}" class="shoulder-img">
+</div>
+
+<div class="exercise-card">
+<p>Dumbbell Front Raise</p>
+<img src="{{ url_for('static', filename='images/Dumbbell Front Raise.gif') }}" class="shoulder-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+<h2>⚙️ Machine / Cable Exercises</h2>
+
+<div class="shoulder-box">
+
+<div class="exercise-card">
+<p>Machine Shoulder Press</p>
+<img src="{{ url_for('static', filename='images/Chest Press Machine.gif') }}" class="shoulder-img">
+</div>
+
+<div class="exercise-card">
+<p>Cable Lateral Raise</p>
+<img src="{{ url_for('static', filename='images/Cable Lateral Raise.gif') }}" class="shoulder-img">
+</div>
+
+<div class="exercise-card">
+<p>Reverse Pec Deck</p>
+<img src="{{ url_for('static', filename='images/Reverse Pec Deck.gif') }}" class="shoulder-img">
+</div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2025 Gym Workout Guide | Shoulder Day Routine</p>
+</footer>
+
 {% endblock %}

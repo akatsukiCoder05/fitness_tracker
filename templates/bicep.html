@@ -3,77 +3,87 @@
 {% block title %}Bicep Exercises - Arambh Fitness{% endblock %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/bicep_style.css') }}"> 
-<style>
-    .bicep-box {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        padding: 1rem;
-    }
-    .bicep-img {
-        max-width: 300px;
-        border-radius: 8px;
-    }
-</style>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/bicep_style.css') }}">
 {% endblock %}
 
 {% block content %}
 <div class="container mt-4">
-    <h1 class="mb-4">Biceps Exercises</h1>
 
-    <div class="exercise-category mb-5">
-        <h2 class="mb-3">🏋️‍♂️ Barbell Exercises</h2>
-        <div class="bicep-box">
-            <div class="exercise-item">
-                <h5>Barbell Curl</h5>
-                <img src="{{ url_for('static', filename='images/Barbell Curl.gif') }}" alt="Barbell Curl" class="bicep-img">
-            </div>
-            <div class="exercise-item">
-                <h5>EZ-Bar Curl</h5>
-                <img src="{{ url_for('static', filename='images/EZ-Bar Curl.gif') }}" alt="EZ-Bar Curl" class="bicep-img">
-            </div>
-            <div class="exercise-item">
-                <h5>Drag Curl</h5>
-                <img src="{{ url_for('static', filename='images/Drag Curl.gif') }}" alt="Drag Curl" class="bicep-img">
-            </div>
-        </div>
-    </div>
+<h1>Biceps Exercises</h1>
 
-    <div class="exercise-category mb-5">
-        <h2 class="mb-3">💪 Dumbbell Exercises</h2>
-        <div class="bicep-box">
-            <div class="exercise-item">
-                <h5>Dumbbell Bicep Curl</h5>
-                <img src="{{ url_for('static', filename='images/Dumbbell Bicep Curl.gif') }}" alt="Dumbbell Bicep Curl" class="bicep-img">
-            </div>
-            <div class="exercise-item">
-                <h5>Incline Dumbbell Curl</h5>
-                <img src="{{ url_for('static', filename='images/Incline Dumbbell Curl.gif') }}" alt="Incline Dumbbell Curl" class="bicep-img">
-            </div>
-            <div class="exercise-item">
-                <h5>Hammer Curl</h5>
-                <img src="{{ url_for('static', filename='images/Hammer Curl.gif') }}" alt="Hammer Curl" class="bicep-img">
-            </div>
-        </div>
-    </div>
+<div class="exercise-category">
 
-    <div class="exercise-category mb-5">
-        <h2 class="mb-3">⚙️ Machine / Cable Exercises</h2>
-        <div class="bicep-box">
-            <div class="exercise-item">
-                <h5>Cable Curl</h5>
-                <img src="{{ url_for('static', filename='images/Cable Curl.gif') }}" alt="Cable Curl" class="bicep-img">
-            </div>
-            <div class="exercise-item">
-                <h5>Preacher Curl (Machine)</h5>
-                <img src="{{ url_for('static', filename='images/Preacher Curl (Machine).gif') }}" alt="Preacher Curl Machine" class="bicep-img">
-            </div>
-            <div class="exercise-item">
-                <h5>Rope Cable Hammer Curl</h5>
-                <img src="{{ url_for('static', filename='images/Rope Cable Hammer Curl.gif') }}" alt="Rope Cable Hammer Curl" class="bicep-img">
-            </div>
-        </div>
-    </div>
+<h2>🏋️‍♂️ Barbell Exercises</h2>
+
+<div class="bicep-box">
+
+<div class="exercise-card">
+<h5>Barbell Curl</h5>
+<img src="{{ url_for('static', filename='images/Barbell Curl.gif') }}" class="bicep-img">
+</div>
+
+<div class="exercise-card">
+<h5>EZ-Bar Curl</h5>
+<img src="{{ url_for('static', filename='images/EZ-Bar Curl.gif') }}" class="bicep-img">
+</div>
+
+<div class="exercise-card">
+<h5>Drag Curl</h5>
+<img src="{{ url_for('static', filename='images/Drag Curl.gif') }}" class="bicep-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>💪 Dumbbell Exercises</h2>
+
+<div class="bicep-box">
+
+<div class="exercise-card">
+<h5>Dumbbell Bicep Curl</h5>
+<img src="{{ url_for('static', filename='images/Dumbbell Bicep Curl.gif') }}" class="bicep-img">
+</div>
+
+<div class="exercise-card">
+<h5>Incline Dumbbell Curl</h5>
+<img src="{{ url_for('static', filename='images/Incline Dumbbell Curl.gif') }}" class="bicep-img">
+</div>
+
+<div class="exercise-card">
+<h5>Hammer Curl</h5>
+<img src="{{ url_for('static', filename='images/Hammer Curl.gif') }}" class="bicep-img">
+</div>
+
+</div>
+</div>
+
+
+<div class="exercise-category">
+
+<h2>⚙️ Machine / Cable Exercises</h2>
+
+<div class="bicep-box">
+
+<div class="exercise-card">
+<h5>Cable Curl</h5>
+<img src="{{ url_for('static', filename='images/Cable Curl.gif') }}" class="bicep-img">
+</div>
+
+<div class="exercise-card">
+<h5>Preacher Curl (Machine)</h5>
+<img src="{{ url_for('static', filename='images/Preacher Curl (Machine).gif') }}" class="bicep-img">
+</div>
+
+<div class="exercise-card">
+<h5>Rope Cable Hammer Curl</h5>
+<img src="{{ url_for('static', filename='images/Rope Cable Hammer Curl.gif') }}" class="bicep-img">
+</div>
+
+</div>
+</div>
+
 </div>
 {% endblock %}

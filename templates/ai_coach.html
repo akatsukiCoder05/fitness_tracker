@@ -1,0 +1,329 @@
+{% extends 'base.html' %}
+
+{% block title %}AI Coach — Arambh Fitness{% endblock %}
+
+{% block content %}
+<div class="ai-wrapper">
+    <div class="chat-card">
+
+        <!-- Header -->
+        <div class="chat-header">
+            <div class="coach-avatar">🤖</div>
+            <div>
+                <h5>Arambh AI Coach</h5>
+                <small class="status">Online</small>
+            </div>
+        </div>
+
+        <!-- Chat Body -->
+        <div class="chat-body" id="chatWindow">
+
+            <!-- Welcome Message -->
+            <div class="message ai">
+                <div class="avatar">🤖</div>
+                <div class="bubble">
+                    Hello {{ user.first_name }}! 💪<br>
+                    I'm your AI Coach. Ask me anything about fitness, nutrition, or workout plans!
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="chat-footer">
+            <input type="text" 
+                   id="userInput" 
+                   placeholder="Ask your fitness question..." 
+                   onkeypress="handleKey(event)">
+            <button onclick="askCoach()">Ask</button>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+function handleKey(event) {
+    if (event.key === "Enter") {
+        askCoach();
+    }
+}
+
+async function askCoach() {
+    const inputField = document.getElementById('userInput');
+    const chatWindow = document.getElementById('chatWindow');
+    const message = inputField.value.trim();
+
+    if (!message) return;
+
+    inputField.disabled = true;
+
+    // Add User Message
+    const userMessage = `
+        <div class="message user">
+            <div class="bubble">${message}</div>
+        </div>
+    `;
+    chatWindow.innerHTML += userMessage;
+    inputField.value = '';
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    // Add Typing Indicator
+    const loadingId = "loading-msg";
+    chatWindow.innerHTML += `
+        <div class="message ai" id="${loadingId}">
+            <div class="avatar">🤖</div>
+            <div class="bubble typing">
+                Coach is typing...
+            </div>
+        </div>
+    `;
+    chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    try {
+        const response = await fetch('/ai-coach', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: message })
+        });
+
+        const data = await response.json();
+
+        document.getElementById(loadingId).remove();
+
+        const formattedReply = formatAIResponse(data.reply);
+
+        const aiMessage = `
+            <div class="message ai">
+                <div class="avatar">🤖</div>
+                <div class="bubble">
+                    ${formattedReply}
+                </div>
+            </div>
+        `;
+
+        chatWindow.innerHTML += aiMessage;
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+
+    } catch (error) {
+        document.getElementById(loadingId).remove();
+        chatWindow.innerHTML += `
+            <div class="message ai">
+                <div class="avatar">⚠</div>
+                <div class="bubble error">
+                    Error getting response. Please try again.
+                </div>
+            </div>
+        `;
+    }
+
+    inputField.disabled = false;
+    inputField.focus();
+}
+
+
+// Simple Text Formatter
+function formatAIResponse(text) {
+    text = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+    text = text.replace(/\n/g, "<br>");
+    text = text.replace(/•/g, "🔹");
+    return text;
+}
+</script>
+
+<style>
+
+/* ===== Fancy AI Background (page) ===== */
+body{
+  min-height:100vh;
+  background: radial-gradient(circle at 10% 20%, rgba(0,198,255,0.18), transparent 35%),
+              radial-gradient(circle at 90% 30%, rgba(255,0,150,0.14), transparent 40%),
+              radial-gradient(circle at 40% 90%, rgba(0,255,170,0.14), transparent 40%),
+              linear-gradient(135deg,#eef2ff,#e0f7fa,#f3e5f5);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== Chat Card Glass + Pattern ===== */
+.chat-card{
+  position: relative;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.35);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.18);
+  border-radius: 22px;
+  overflow: hidden;
+}
+
+/* Gradient blobs inside card */
+.chat-card::before{
+  content:"";
+  position:absolute;
+  inset:-50px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,198,255,0.35) 0px, transparent 240px),
+    radial-gradient(circle at 85% 25%, rgba(255,0,150,0.22) 0px, transparent 260px),
+    radial-gradient(circle at 25% 85%, rgba(0,255,170,0.20) 0px, transparent 240px),
+    radial-gradient(circle at 80% 85%, rgba(120,80,255,0.18) 0px, transparent 260px);
+  filter: blur(12px);
+  z-index: 0;
+}
+
+/* Grid pattern inside card */
+.chat-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  opacity: 0.10;
+  z-index: 0;
+}
+
+/* keep content above patterns */
+.chat-header,.chat-body,.chat-footer{ position:relative; z-index:1; }
+
+/* ===== Header + Heading Tag Style ===== */
+.chat-header{
+  padding: 16px 18px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.75), rgba(67,67,67,0.65));
+  color:#fff;
+}
+
+.chat-header h1,
+.chat-header h2,
+.chat-header h3,
+.chat-header h4{
+  margin:0;
+  font-weight:800;
+  letter-spacing:0.6px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Optional: small subtitle / status */
+.chat-header .status{
+  margin-left:auto;
+  font-size:12px;
+  color:#00ff88;
+  font-weight:700;
+}
+
+/* ===== Chat Body ===== */
+.chat-body{
+  padding: 18px;
+  background: rgba(255,255,255,0.18);
+  overflow-y:auto;
+}
+
+/* ===== Messages layout ===== */
+.message{
+  display:flex;
+  gap:10px;
+  margin-bottom:14px;
+  align-items:flex-end;
+}
+
+/* AI left, User right */
+.message.ai{ justify-content:flex-start; }
+.message.user{ justify-content:flex-end; }
+
+/* avatar visible + circle */
+.avatar{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+  flex: 0 0 34px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+}
+
+/* avatar colors */
+.message.ai .avatar{
+  background: rgba(0,198,255,0.20);
+  border:1px solid rgba(0,198,255,0.35);
+}
+.message.user .avatar{
+  background: rgba(255,81,47,0.18);
+  border:1px solid rgba(255,81,47,0.35);
+}
+
+/* ===== Bubble common ===== */
+.bubble{
+  padding: 12px 14px;
+  max-width: 75%;
+  font-size: 14px;
+  line-height: 1.45;
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* ===== AI bubble (LEFT) ===== */
+.message.ai .bubble{
+  background: rgba(255,255,255,0.78);
+  color:#111;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 16px 16px 16px 6px;
+}
+
+/* AI bubble tail */
+.message.ai .bubble::after{
+  content:"";
+  position:absolute;
+  left:-7px;
+  bottom:10px;
+  width:14px; height:14px;
+  background: rgba(255,255,255,0.78);
+  border-left: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transform: rotate(45deg);
+}
+
+/* ===== USER bubble (RIGHT) ===== */
+.message.user .bubble{
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color:#fff;
+  border: none;
+  border-radius: 16px 16px 6px 16px;
+}
+
+/* User bubble tail */
+.message.user .bubble::after{
+  content:"";
+  position:absolute;
+  right:-7px;
+  bottom:10px;
+  width:14px; height:14px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  transform: rotate(45deg);
+}
+
+/* ===== Footer ===== */
+.chat-footer{
+  padding: 14px;
+  background: rgba(255,255,255,0.20);
+  border-top: 1px solid rgba(255,255,255,0.35);
+}
+
+.chat-footer input{
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.chat-footer button{
+  background: linear-gradient(135deg, #ff512f, #dd2476);
+  font-weight:700;
+}
+
+/* optional: typing animation remains same */
+</style> 
+
+{% endblock %}

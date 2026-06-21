@@ -1,0 +1,288 @@
+{% extends 'base.html' %}
+{% block title %}Workout Plan - Arambh Fitness{% endblock %}
+
+{% block extra_css %}
+<style>
+  body{
+    min-height: 100vh;
+    background:
+      linear-gradient(135deg, rgba(15,23,42,0.96), rgba(55,65,81,0.92)),
+      url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .container.py-4{
+    position: relative;
+    z-index: 2;
+  }
+
+  .card{
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 24px !important;
+    background: rgba(255,255,255,0.10) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.30);
+    overflow: hidden;
+  }
+
+  .card-body{
+    padding: 2rem !important;
+  }
+
+  h3{
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    margin-bottom: 0.5rem !important;
+  }
+
+  p.text-muted{
+    color: rgba(255,255,255,0.72) !important;
+    font-size: 0.98rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-label{
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 0.55rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.2px;
+  }
+
+  .form-select{
+    height: 52px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.14);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: none !important;
+    transition: all 0.25s ease;
+    padding-left: 14px;
+    padding-right: 40px;
+  }
+
+  .form-select:focus{
+    border-color: rgba(13,202,240,0.9);
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 0 0 0.25rem rgba(13,202,240,0.18) !important;
+    transform: translateY(-1px);
+  }
+
+  .form-select option{
+    color: #111827;
+    background: #ffffff;
+  }
+
+  .row.g-3 > div{
+    position: relative;
+  }
+
+  .row.g-3 > div::before{
+    content: "";
+    position: absolute;
+    inset: 6px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.04);
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .row.g-3 > div > label,
+  .row.g-3 > div > select{
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn{
+    border-radius: 14px;
+    font-weight: 700;
+    padding: 0.72rem 1.35rem;
+    transition: all 0.25s ease;
+  }
+
+  .btn-dark{
+    border: none;
+    background: linear-gradient(135deg, #06b6d4, #2563eb);
+    box-shadow: 0 12px 24px rgba(37,99,235,0.28);
+  }
+
+  .btn-dark:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(37,99,235,0.34);
+    background: linear-gradient(135deg, #0891b2, #1d4ed8);
+  }
+
+  .btn-outline-secondary{
+    border: 1px solid rgba(255,255,255,0.28);
+    color: #ffffff;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .btn-outline-secondary:hover{
+    background: rgba(255,255,255,0.16);
+    color: #ffffff;
+    border-color: rgba(255,255,255,0.42);
+    transform: translateY(-2px);
+  }
+
+  .mt-4.d-flex.gap-2{
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    margin-top: 2rem !important;
+  }
+
+  @media (max-width: 991px){
+    body{
+      background-attachment: scroll;
+    }
+
+    .card-body{
+      padding: 1.5rem !important;
+    }
+  }
+
+  @media (max-width: 767px){
+    .card{
+      border-radius: 18px !important;
+    }
+
+    h3{
+      font-size: 1.45rem;
+    }
+
+    .form-select{
+      height: 48px;
+      font-size: 0.95rem;
+    }
+
+    .mt-4.d-flex.gap-2{
+      flex-direction: column;
+    }
+
+    .mt-4.d-flex.gap-2 .btn{
+      width: 100%;
+    }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+    
+  <div class="card shadow-sm border-0">
+    <div class="card-body p-4">
+      <h3 class="mb-3">Set Your Weekly Workout Plan</h3>
+      <p class="text-muted">Choose what you want to perform on each day. You can update it anytime.</p>
+
+      <form method="POST">
+        <div class="row g-3">
+
+          <div class="col-md-6">
+            <label class="form-label">Monday</label>
+            <select name="monday" class="form-select">
+              <option value="Chest Day" {{ 'selected' if plan and plan.monday == 'Chest Day' else '' }}>Chest Day</option>
+              <option value="Back Day" {{ 'selected' if plan and plan.monday == 'Back Day' else '' }}>Back Day</option>
+              <option value="Leg Day" {{ 'selected' if plan and plan.monday == 'Leg Day' else '' }}>Leg Day</option>
+              <option value="Shoulder Day" {{ 'selected' if plan and plan.monday == 'Shoulder Day' else '' }}>Shoulder Day</option>
+              <option value="Arms Day" {{ 'selected' if plan and plan.monday == 'Arms Day' else '' }}>Arms Day</option>
+              <option value="Cardio Day" {{ 'selected' if plan and plan.monday == 'Cardio Day' else '' }}>Cardio Day</option>
+              <option value="Rest Day" {{ 'selected' if plan and plan.monday == 'Rest Day' else '' }}>Rest Day</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Tuesday</label>
+            <select name="tuesday" class="form-select">
+              <option value="Chest Day" {{ 'selected' if plan and plan.tuesday == 'Chest Day' else '' }}>Chest Day</option>
+              <option value="Back Day" {{ 'selected' if plan and plan.tuesday == 'Back Day' else '' }}>Back Day</option>
+              <option value="Leg Day" {{ 'selected' if plan and plan.tuesday == 'Leg Day' else '' }}>Leg Day</option>
+              <option value="Shoulder Day" {{ 'selected' if plan and plan.tuesday == 'Shoulder Day' else '' }}>Shoulder Day</option>
+              <option value="Arms Day" {{ 'selected' if plan and plan.tuesday == 'Arms Day' else '' }}>Arms Day</option>
+              <option value="Cardio Day" {{ 'selected' if plan and plan.tuesday == 'Cardio Day' else '' }}>Cardio Day</option>
+              <option value="Rest Day" {{ 'selected' if plan and plan.tuesday == 'Rest Day' else '' }}>Rest Day</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Wednesday</label>
+            <select name="wednesday" class="form-select">
+              <option value="Chest Day" {{ 'selected' if plan and plan.wednesday == 'Chest Day' else '' }}>Chest Day</option>
+              <option value="Back Day" {{ 'selected' if plan and plan.wednesday == 'Back Day' else '' }}>Back Day</option>
+              <option value="Leg Day" {{ 'selected' if plan and plan.wednesday == 'Leg Day' else '' }}>Leg Day</option>
+              <option value="Shoulder Day" {{ 'selected' if plan and plan.wednesday == 'Shoulder Day' else '' }}>Shoulder Day</option>
+              <option value="Arms Day" {{ 'selected' if plan and plan.wednesday == 'Arms Day' else '' }}>Arms Day</option>
+              <option value="Cardio Day" {{ 'selected' if plan and plan.wednesday == 'Cardio Day' else '' }}>Cardio Day</option>
+              <option value="Rest Day" {{ 'selected' if plan and plan.wednesday == 'Rest Day' else '' }}>Rest Day</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Thursday</label>
+            <select name="thursday" class="form-select">
+              <option value="Chest Day" {{ 'selected' if plan and plan.thursday == 'Chest Day' else '' }}>Chest Day</option>
+              <option value="Back Day" {{ 'selected' if plan and plan.thursday == 'Back Day' else '' }}>Back Day</option>
+              <option value="Leg Day" {{ 'selected' if plan and plan.thursday == 'Leg Day' else '' }}>Leg Day</option>
+              <option value="Shoulder Day" {{ 'selected' if plan and plan.thursday == 'Shoulder Day' else '' }}>Shoulder Day</option>
+              <option value="Arms Day" {{ 'selected' if plan and plan.thursday == 'Arms Day' else '' }}>Arms Day</option>
+              <option value="Cardio Day" {{ 'selected' if plan and plan.thursday == 'Cardio Day' else '' }}>Cardio Day</option>
+              <option value="Rest Day" {{ 'selected' if plan and plan.thursday == 'Rest Day' else '' }}>Rest Day</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Friday</label>
+            <select name="friday" class="form-select">
+              <option value="Chest Day" {{ 'selected' if plan and plan.friday == 'Chest Day' else '' }}>Chest Day</option>
+              <option value="Back Day" {{ 'selected' if plan and plan.friday == 'Back Day' else '' }}>Back Day</option>
+              <option value="Leg Day" {{ 'selected' if plan and plan.friday == 'Leg Day' else '' }}>Leg Day</option>
+              <option value="Shoulder Day" {{ 'selected' if plan and plan.friday == 'Shoulder Day' else '' }}>Shoulder Day</option>
+              <option value="Arms Day" {{ 'selected' if plan and plan.friday == 'Arms Day' else '' }}>Arms Day</option>
+              <option value="Cardio Day" {{ 'selected' if plan and plan.friday == 'Cardio Day' else '' }}>Cardio Day</option>
+              <option value="Rest Day" {{ 'selected' if plan and plan.friday == 'Rest Day' else '' }}>Rest Day</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Saturday</label>
+            <select name="saturday" class="form-select">
+              <option value="Chest Day" {{ 'selected' if plan and plan.saturday == 'Chest Day' else '' }}>Chest Day</option>
+              <option value="Back Day" {{ 'selected' if plan and plan.saturday == 'Back Day' else '' }}>Back Day</option>
+              <option value="Leg Day" {{ 'selected' if plan and plan.saturday == 'Leg Day' else '' }}>Leg Day</option>
+              <option value="Shoulder Day" {{ 'selected' if plan and plan.saturday == 'Shoulder Day' else '' }}>Shoulder Day</option>
+              <option value="Arms Day" {{ 'selected' if plan and plan.saturday == 'Arms Day' else '' }}>Arms Day</option>
+              <option value="Cardio Day" {{ 'selected' if plan and plan.saturday == 'Cardio Day' else '' }}>Cardio Day</option>
+              <option value="Rest Day" {{ 'selected' if plan and plan.saturday == 'Rest Day' else '' }}>Rest Day</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Sunday</label>
+            <select name="sunday" class="form-select">
+              <option value="Chest Day" {{ 'selected' if plan and plan.sunday == 'Chest Day' else '' }}>Chest Day</option>
+              <option value="Back Day" {{ 'selected' if plan and plan.sunday == 'Back Day' else '' }}>Back Day</option>
+              <option value="Leg Day" {{ 'selected' if plan and plan.sunday == 'Leg Day' else '' }}>Leg Day</option>
+              <option value="Shoulder Day" {{ 'selected' if plan and plan.sunday == 'Shoulder Day' else '' }}>Shoulder Day</option>
+              <option value="Arms Day" {{ 'selected' if plan and plan.sunday == 'Arms Day' else '' }}>Arms Day</option>
+              <option value="Cardio Day" {{ 'selected' if plan and plan.sunday == 'Cardio Day' else '' }}>Cardio Day</option>
+              <option value="Rest Day" {{ 'selected' if plan and plan.sunday == 'Rest Day' else '' }}>Rest Day</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="mt-4 d-flex gap-2">
+          <button type="submit" class="btn btn-dark">Save Plan</button>
+          <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">Back to Dashboard</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

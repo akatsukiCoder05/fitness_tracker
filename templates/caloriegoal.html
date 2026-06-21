@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block title %}Calorie Goal Guide - Arambh Fitness{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-5 px-4">
+    
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">🔥 Calorie Goal Guide</h1>
+        <p class="text-muted">Choose your path to transform your fitness journey</p>
+    </div>
+
+    <div class="row g-4 mb-4">
+        <div class="col-xl-4 col-md-6">
+            <a href="/caloriegoal/cutting" class="text-decoration-none text-dark h-100 d-block">
+                <div class="card h-100 shadow-sm border-0 p-4 text-center hover-card">
+                    <div class="mb-3 fs-1">🧠</div>
+                    <h2 class="h4 fw-bold">Cutting</h2>
+                    <p class="text-muted mb-0">(Fat Loss Phase)</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-xl-4 col-md-6">
+            <a href="/caloriegoal/bulking" class="text-decoration-none text-dark h-100 d-block">
+                <div class="card h-100 shadow-sm border-0 p-4 text-center hover-card">
+                    <div class="mb-3 fs-1">💪</div>
+                    <h2 class="h4 fw-bold">Bulking</h2>
+                    <p class="text-muted mb-0">(Muscle Gain Phase)</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-xl-4 col-md-12">
+            <a href="/caloriegoal/maintenance" class="text-decoration-none text-dark h-100 d-block">
+                <div class="card h-100 shadow-sm border-0 p-4 text-center hover-card">
+                    <div class="mb-3 fs-1">⚖️</div>
+                    <h2 class="h4 fw-bold">Maintenance</h2>
+                    <p class="text-muted mb-0">(Weight Stable Phase)</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <a href="/caloriegoal/tipsforsuccess" class="text-decoration-none text-dark d-block">
+                <div class="card shadow-sm border-0 p-4 text-center hover-card">
+                    <h2 class="h4 fw-bold mb-0">🌟 Tips For Success</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Professional Hover Effect */
+ /* =========================
+   Nutrition Theme Background
+========================= */
+
+body{
+    background: linear-gradient(135deg,#f8fff5,#eefaf1,#fdf9f2);
+    min-height:100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* subtle healthy pattern */
+body::before{
+    content:"";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background-image:
+        radial-gradient(circle at 20% 20%, rgba(76,175,80,0.08) 2px, transparent 2px),
+        radial-gradient(circle at 80% 40%, rgba(255,152,0,0.08) 2px, transparent 2px),
+        radial-gradient(circle at 40% 80%, rgba(76,175,80,0.08) 2px, transparent 2px),
+        radial-gradient(circle at 70% 70%, rgba(255,152,0,0.08) 2px, transparent 2px);
+    background-size:120px 120px;
+    z-index:-1;
+}
+
+
+/* =========================
+   Nutrition Cards
+========================= */
+
+.hover-card{
+    transition: all 0.3s ease-in-out;
+    border-radius: 18px !important;
+    border: none !important;
+    background: linear-gradient(135deg,#ffffff,#f8fff7);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    overflow: hidden;
+}
+
+/* Hover effect */
+.hover-card:hover{
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12) !important;
+    border: 1px solid #4CAF50 !important;
+}
+
+/* Card header if present */
+.hover-card .card-header{
+    background: linear-gradient(45deg,#4CAF50,#81C784);
+    color:white;
+    font-weight:600;
+}
+
+/* Card titles */
+.hover-card h5,
+.hover-card h4{
+    color:#2e7d32;
+    font-weight:600;
+}
+
+/* Card text */
+.hover-card p{
+    color:#555;
+}
+
+/* Ensuring cards are same height */
+.row.g-4{
+    display:flex;
+    flex-wrap:wrap;
+}
+
+/* Smooth animation */
+.hover-card{
+    animation: cardFade 0.6s ease;
+}
+
+@keyframes cardFade{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+</style>
+{% endblock %}
